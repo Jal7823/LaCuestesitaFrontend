@@ -9,14 +9,17 @@ const PlatesList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
+
+
   useEffect(() => {
     const fetchPlates = async () => {
       try {
-        // Verifica que category esté definido y no sea undefined
         if (category) {
-          const response = await axios.get(`http://localhost:8000/api/categories/${category}/`);
+          // Incluye la categoría como parámetro de consulta
+          response = await axios.get(`http://localhost:8000/api/drinks`);
           console.log(response.data); // Para depuración
-          setPlates(response.data); // Asume que los datos de platos están en la respuesta
+          setPlates(response.data);
         } else {
           setPlates([]);
         }
@@ -29,6 +32,9 @@ const PlatesList = () => {
 
     fetchPlates();
   }, [category]);
+
+  console.log(plates);
+  
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;

@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/shared/Sidebar";
 import Header from "./components/shared/Header";
-import PlatesList from "./components/PlatesList"; // Importa el componente
+import ListElements from './components/ListElements'
+
 
 import {
   RiMenu3Fill,
@@ -55,12 +56,16 @@ function App() {
               </button>
             </div>
             <Routes>
-              <Route path="/:category" element={<PlatesList />} />
+              <Route path="/:category" element={<ListElements />} />
               {/* Default route or other routes */}
             </Routes>
           </div>
         </main>
       </div>
+      <Routes>
+       
+        {/* Default route or other routes */}
+      </Routes>
     </Router>
   );
 }

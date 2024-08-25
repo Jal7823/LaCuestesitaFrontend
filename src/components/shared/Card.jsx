@@ -13,7 +13,7 @@ const Card = (props) => {
       />
       <p className="text-xl">{description}</p>
       <span className="text-gray-400">${price}</span>
-      <p className="text-gray-600">{inventory} Bowls available</p>
+      {/* <p className="text-gray-600">{inventory} Bowls available</p> */}
       <div className="flex justify-between w-full">
         <button className="bg-[#1F1D2B] hover:bg-[#BD85FC] rounded-full p-2">
           <RiEdit2Fill className=""></RiEdit2Fill>
