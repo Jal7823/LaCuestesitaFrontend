@@ -2,8 +2,8 @@ import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/shared/Sidebar";
 import Header from "./components/shared/Header";
-import ListElements from './components/ListElements'
-
+import ListElements from './components/ListElements';
+import Details from './components/Details';
 
 import {
   RiMenu3Fill,
@@ -57,15 +57,11 @@ function App() {
             </div>
             <Routes>
               <Route path="/:category" element={<ListElements />} />
-              {/* Default route or other routes */}
+              <Route path="/details/:id" element={<Details />} /> 
             </Routes>
           </div>
         </main>
       </div>
-      <Routes>
-       
-        {/* Default route or other routes */}
-      </Routes>
     </Router>
   );
 }
