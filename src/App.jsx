@@ -1,9 +1,11 @@
-import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Card from "./components/shared/Card";
+import { BrowserRouter as Router, Route, Routes, useParams } from "react-router-dom";
 import Sidebar from "./components/shared/Sidebar";
 import Header from "./components/shared/Header";
-import ListElements from './components/ListElements';
-import Details from './components/Details';
+import ListElements from "./components/ListElements";
+import Details from "./components/Details";
 
 import {
   RiMenu3Fill,
@@ -11,12 +13,14 @@ import {
   RiAddLine,
   RiPieChartLine,
   RiCloseLine,
-  RiArrowDownSLine,
 } from "react-icons/ri";
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
   const [showOrder, setShowOrder] = useState(false);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -27,6 +31,38 @@ function App() {
     setShowOrder(!showOrder);
     setShowMenu(false);
   };
+
+  // Function to fetch items, with optional category filter
+  const fetchItems = async (category = "") => {
+    try {
+      let response;
+
+      // Conditionally fetch items based on category
+      if (category) {
+        response = await axios.get(`http://localhost:8000/api/plates?category=${category}`);
+      } else {
+        response = await axios.get(`http://localhost:8000/api/plates`);
+      }
+
+      setItems(response.data);
+    } catch (err) {
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Load items when component mounts, or category changes
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  if (!items.length)
+    return (
+      <div className="text-white">No items available in this category.</div>
+    );
 
   return (
     <Router>
@@ -42,22 +78,20 @@ function App() {
           <button onClick={toggleOrders} className="p-2">
             <RiPieChartLine />
           </button>
-          <button onClick={toggleMenu} className="text-white p-2">
+          <button onClick={toggleMenu} className="p-2 text-white">
             {showMenu ? <RiCloseLine /> : <RiMenu3Fill />}
           </button>
         </nav>
-        <main className="lg:pl-32 pb-20">
-          <div className="md:p-8 p-4">
+        <main className="pb-20 lg:pl-32">
+          <div className="p-4 md:p-8">
             <Header />
-            <div className="flex items-center justify-between mb-16">
-              <h2 className="text-xl text-gray-300">Platos</h2>
-              <button className="flex items-center gap-4 text-gray-300 bg-[#1F1D2B] py-2 px-4 rounded-lg">
-                <RiArrowDownSLine /> Dine in
-              </button>
-            </div>
             <Routes>
-              <Route path="/:category" element={<ListElements />} />
-              <Route path="/details/:id" element={<Details />} /> 
+              <Route
+                path="/"
+                element={<ListElements items={items} fetchItems={fetchItems} />}
+              />
+              <Route path="/:category" element={<ListElements fetchItems={fetchItems} />} />
+              <Route path="/details/:id" element={<Details />} />
             </Routes>
           </div>
         </main>

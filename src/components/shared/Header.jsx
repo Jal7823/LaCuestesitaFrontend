@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 import { RiSearch2Line } from "react-icons/ri";
+import { RiHome2Fill } from "react-icons/ri";
 
 const Header = () => {
   const today = new Date();
@@ -29,7 +30,9 @@ const Header = () => {
         </form>
       </div>
       {/* Tabs */}
-      <nav className="text-gray-300 flex items-center justify-start md:justify-start md:gap-8 border-b mb-6 overflow-x-auto whitespace-nowrap">
+      {/* TODO AGREGAR EL FIXED AL NAVBAR Y TEN CUIDADO CON EL TOP */}
+        <nav className="text-gray-300  flex items-center justify-start md:justify-start md:gap-8 border-b mb-6 overflow-x-auto whitespace-nowrap">
+        <NavLink to="/" className="py-2  flex-shrink-0"><RiHome2Fill/></NavLink>
         <NavLink to="/pescados" className="py-2 pr-4 flex-shrink-0">Pescados</NavLink>
         <NavLink to="/carnes" className="py-2 pr-4 flex-shrink-0">Carnes</NavLink>
         <NavLink to="/ensaladas" className="py-2 pr-4 flex-shrink-0">Ensaladas</NavLink>

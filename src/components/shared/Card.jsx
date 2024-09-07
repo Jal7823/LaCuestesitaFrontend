@@ -8,7 +8,7 @@ const Card = ({ id, img, description, price, inventory, isDrink }) => {
       <img
         src={img}
         alt={description} // Añadir un texto alternativo para accesibilidad
-        className="w-40 h-40 object-cover -mt-20 shadow-2xl rounded-full"
+        className="object-cover w-40 h-40 -mt-20 rounded-full shadow-2xl"
       />
       <p className="text-xl">{description}</p>
       <span className="text-gray-400">${price}</span>

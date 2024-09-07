@@ -34,7 +34,7 @@ const Details = () => {
         <img
           src={item.image || "default-image.png"}
           alt={item.description}
-          className="w-120 h-120 object-cover -mt-20 shadow-2xl rounded-full"
+          className="w-80 h-80 object-cover -mt-20 shadow-2xl rounded-full"
         />
         <p className="text-xl">{item.description}</p>
         <span className="text-gray-400">${item.price}</span>

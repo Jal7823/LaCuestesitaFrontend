@@ -36,7 +36,7 @@ const PlatesList = () => {
   if (!items.length) return <div className="text-white">No items available in this category.</div>;
 
   return (
-    <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+    <div className="grid grid-cols-1 gap-16 p-8 md:grid-cols-2 lg:grid-cols-3">
       {items.map(item => (
         <Card
           key={item.id}
