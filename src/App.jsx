@@ -6,6 +6,7 @@ import Sidebar from "./components/shared/Sidebar";
 import Header from "./components/shared/Header";
 import ListElements from "./components/ListElements";
 import Details from "./components/Details";
+import Spinner from './components/shared/Spinner'
 
 import {
   RiMenu3Fill,
@@ -57,11 +58,11 @@ function App() {
     fetchItems();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (loading) return <div><Spinner/></div>;
+  if (error) return <div className="mx-auto my-auto">Error: {error.message}</div>;
   if (!items.length)
     return (
-      <div className="text-white">No items available in this category.</div>
+      <div className="text-white flex justify-center items-center"><p>No items available in this category.</p></div>
     );
 
   return (
