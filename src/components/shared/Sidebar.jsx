@@ -2,14 +2,14 @@ import React from "react";
 import {NavLink} from 'react-router-dom'
 import {
   RiHome6Line,
-  RiPercentLine,
   RiPieChartLine,
   RiMailLine,
   RiNotification3Line,
   RiSettings4Line,
-  RiLogoutCircleRLine,
+
   RiAddCircleFill,
 } from "react-icons/ri";
+import ThemeToggle from '../ToggelTheme'
 
 const Sidebar = (props) => {
   const { showMenu } = props;
@@ -82,9 +82,10 @@ const Sidebar = (props) => {
               to="#"
               className="group-hover:bg-[#BD85FC] p-4 flex justify-center rounded-xl text-[#BD85FC] group-hover:text-white transition-colors"
             >
-              <RiLogoutCircleRLine className="text-2xl" />
+              <ThemeToggle className="text-2xl" />
             </NavLink>
           </li>
+
         </ul>
       </div>
     </div>

@@ -15,7 +15,7 @@ import {
   RiPieChartLine,
   RiCloseLine,
 } from "react-icons/ri";
-import ThemeToggle from "./components/ToggelTheme";
+
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
@@ -70,17 +70,17 @@ function App() {
     <Router>
       <div className="bg-custom-white dark:bg-custom-primary-black dark:text-white w-full min-h-screen">
         <Sidebar showMenu={showMenu} />
-        <nav className="bg-custom-white lg:hidden fixed w-full bottom-0 left-0 text-3xl py-2 px-8 flex items-center justify-between rounded-tl-xl rounded-tr-xl">
-          <button className="p-2">
+        <nav className="bg-custom-white dark:bg-custom-secondary-black lg:hidden fixed w-full bottom-0 left-0 text-3xl py-2 px-8 flex items-center justify-between rounded-tl-xl rounded-tr-xl">
+          <button className="p-2 text-custom-purpure-dark-light">
             <RiUser3Line />
           </button>
-          <button className="p-2">
+          <button className="p-2 text-custom-purpure-dark-light">
             <RiAddLine />
           </button>
-          <button onClick={toggleOrders} className="p-2">
+          <button onClick={toggleOrders} className="p-2 text-custom-purpure-dark-light">
             <RiPieChartLine />
           </button>
-          <button onClick={toggleMenu} className="p-2 ">
+          <button onClick={toggleMenu} className="p-2 text-custom-purpure-dark-light">
             {showMenu ? <RiCloseLine /> : <RiMenu3Fill />}
           </button>
         </nav>
@@ -88,7 +88,6 @@ function App() {
         <main className="pb-20 lg:pl-32">
           <div className="p-4 md:p-8">
             <Header />
-            <ThemeToggle/>
 
             <Routes>    
               <Route

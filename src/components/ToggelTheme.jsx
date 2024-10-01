@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { RiToggleLine } from "react-icons/ri";
 
 function ThemeToggle() {
   // Estado para el tema, por defecto será 'light'
@@ -21,11 +22,11 @@ function ThemeToggle() {
   };
 
   return (
-    <button
-      onClick={toggleTheme}
-      className="p-2 bg-gray-200 dark:bg-gray-800 text-black dark:text-white rounded">
-      Toggle Theme
-    </button>
+
+    <>
+      <RiToggleLine className='text-3xl ' onClick={toggleTheme}/>
+      
+    </>
   );
 }
 
