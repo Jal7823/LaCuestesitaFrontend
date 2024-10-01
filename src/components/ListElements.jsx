@@ -33,7 +33,9 @@ const PlatesList = () => {
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
-  if (!items.length) return <div className="text-white">No items available in this category.</div>;
+  if (!items.length) return <div className="">
+    <img className="mx-auto my-auto rounded" src="/404.gif" alt="error 404" />
+  </div>;
 
   return (
     <div className="grid grid-cols-1 gap-16 p-8 md:grid-cols-2 lg:grid-cols-3">

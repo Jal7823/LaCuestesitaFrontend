@@ -58,18 +58,18 @@ function App() {
     fetchItems();
   }, []);
 
-  if (loading) return <div><Spinner/></div>;
+  if (loading) return <div><Spinner /></div>;
   if (error) return <div className="mx-auto my-auto">Error: {error.message}</div>;
   if (!items.length)
     return (
-      <div className="text-white flex justify-center items-center"><p>No items available in this category.</p></div>
+      <div className=" flex justify-center items-center"><p>No items available in this category.</p></div>
     );
 
   return (
     <Router>
-      <div className="bg-[#262837] w-full min-h-screen">
+      <div className="bg-custom-white w-full min-h-screen">
         <Sidebar showMenu={showMenu} />
-        <nav className="bg-[#1F1D2B] lg:hidden fixed w-full bottom-0 left-0 text-3xl text-gray-400 py-2 px-8 flex items-center justify-between rounded-tl-xl rounded-tr-xl">
+        <nav className="bg-custom-white lg:hidden fixed w-full bottom-0 left-0 text-3xl py-2 px-8 flex items-center justify-between rounded-tl-xl rounded-tr-xl">
           <button className="p-2">
             <RiUser3Line />
           </button>
@@ -79,14 +79,14 @@ function App() {
           <button onClick={toggleOrders} className="p-2">
             <RiPieChartLine />
           </button>
-          <button onClick={toggleMenu} className="p-2 text-white">
+          <button onClick={toggleMenu} className="p-2 ">
             {showMenu ? <RiCloseLine /> : <RiMenu3Fill />}
           </button>
         </nav>
         <main className="pb-20 lg:pl-32">
           <div className="p-4 md:p-8">
             <Header />
-            <Routes>
+            <Routes>    
               <Route
                 path="/"
                 element={<ListElements items={items} fetchItems={fetchItems} />}

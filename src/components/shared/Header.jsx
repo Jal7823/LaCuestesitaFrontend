@@ -15,15 +15,15 @@ const Header = () => {
       {/* Title and search */}
       <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-300">La Cuestesita</h1>
+          <h1 className="text-2xl font-bold ">La Cuestesita</h1>
           <p className="text-gray-500">{formattedDate}</p>
         </div>
         <form>
           <div className="w-full relative">
-            <RiSearch2Line className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-300" />
+            <RiSearch2Line className="absolute left-3 top-1/2 -translate-y-1/2 " />
             <input
               type="text"
-              className="bg-[#1F1D2B] w-full py-2 pl-10 pr-4 rounded-lg text-gray-300 outline-none"
+              className="bg-custom-white w-full py-2 pl-10 pr-4 rounded-lg  outline-none border border-b-2"
               placeholder="Buscar"
             />
           </div>
@@ -31,7 +31,7 @@ const Header = () => {
       </div>
       {/* Tabs */}
       {/* TODO AGREGAR EL FIXED AL NAVBAR Y TEN CUIDADO CON EL TOP */}
-        <nav className="text-gray-300  flex items-center justify-start md:justify-start md:gap-8 border-b mb-6 overflow-x-auto whitespace-nowrap">
+        <nav className="  flex items-center justify-start md:justify-start md:gap-8 border-b mb-6 overflow-x-auto whitespace-nowrap">
         <NavLink to="/" className="py-2  flex-shrink-0"><RiHome2Fill/></NavLink>
         <NavLink to="/pescados" className="py-2 pr-4 flex-shrink-0">Pescados</NavLink>
         <NavLink to="/carnes" className="py-2 pr-4 flex-shrink-0">Carnes</NavLink>
