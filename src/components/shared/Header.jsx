@@ -23,7 +23,7 @@ const Header = () => {
             <RiSearch2Line className="absolute left-3 top-1/2 -translate-y-1/2 " />
             <input
               type="text"
-              className="bg-custom-white w-full py-2 pl-10 pr-4 rounded-lg  outline-none border border-b-2"
+              className="bg-custom-white w-full py-2 pl-10 pr-4 rounded-lg  outline-none border border-b-2 dark:bg-custom-secondary-black"
               placeholder="Buscar"
             />
           </div>

@@ -15,6 +15,7 @@ import {
   RiPieChartLine,
   RiCloseLine,
 } from "react-icons/ri";
+import ThemeToggle from "./components/ToggelTheme";
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
@@ -62,12 +63,12 @@ function App() {
   if (error) return <div className="mx-auto my-auto">Error: {error.message}</div>;
   if (!items.length)
     return (
-      <div className=" flex justify-center items-center"><p>No items available in this category.</p></div>
-    );
+  <div className=" flex justify-center items-center"><p>No items available in this category.</p></div>
+);
 
   return (
     <Router>
-      <div className="bg-custom-white w-full min-h-screen">
+      <div className="bg-custom-white dark:bg-custom-primary-black dark:text-white w-full min-h-screen">
         <Sidebar showMenu={showMenu} />
         <nav className="bg-custom-white lg:hidden fixed w-full bottom-0 left-0 text-3xl py-2 px-8 flex items-center justify-between rounded-tl-xl rounded-tr-xl">
           <button className="p-2">
@@ -83,9 +84,12 @@ function App() {
             {showMenu ? <RiCloseLine /> : <RiMenu3Fill />}
           </button>
         </nav>
+
         <main className="pb-20 lg:pl-32">
           <div className="p-4 md:p-8">
             <Header />
+            <ThemeToggle/>
+
             <Routes>    
               <Route
                 path="/"

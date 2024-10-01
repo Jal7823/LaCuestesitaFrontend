@@ -16,7 +16,7 @@ const Sidebar = (props) => {
 
   return (
     <div
-      className={`bg-custom-purpure-light fixed lg:left-0 top-0 w-28 h-full flex flex-col justify-between py-6 rounded-tr-xl rounded-br-xl z-50 transition-all ${
+      className={`dark:bg-custom-secondary-black bg-custom-purpure-light fixed lg:left-0 top-0 w-28 h-full flex flex-col justify-between py-6 rounded-tr-xl rounded-br-xl z-50 transition-all ${
         showMenu ? "left-0" : "-left-full"
       }`}
     >

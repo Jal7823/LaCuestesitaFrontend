@@ -30,7 +30,7 @@ const Details = () => {
 
   return (
     <div className="container ">
-      <div className="bg-custom-purpure-light p-8 rounded-xl flex flex-col items-center gap-2 text-center ">
+      <div className="bg-custom-purpure-light p-8 rounded-xl flex flex-col items-center gap-2 text-center  dark:bg-custom-secondary-black">
         <img
           src={item.image || "default-image.png"}
           alt={item.description}
