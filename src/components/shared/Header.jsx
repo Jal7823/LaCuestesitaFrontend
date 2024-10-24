@@ -5,9 +5,11 @@ import { RiHome2Fill } from "react-icons/ri";
 const Header = ({ onLanguageChange }) => {
   const [categories, setCategories] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = useState("en");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCategories = async () => {
+      setLoading(true); // Inicia la carga
       try {
         const response = await fetch("http://localhost:8000/api/categories/", {
           headers: {
@@ -21,6 +23,8 @@ const Header = ({ onLanguageChange }) => {
         setCategories(data);
       } catch (error) {
         console.error("Error fetching categories:", error);
+      } finally {
+        setLoading(false); // Finaliza la carga
       }
     };
 
@@ -30,7 +34,7 @@ const Header = ({ onLanguageChange }) => {
   const handleLanguageChange = (event) => {
     const newLanguage = event.target.value;
     setSelectedLanguage(newLanguage);
-    onLanguageChange(newLanguage); // Notify parent about language change
+    onLanguageChange(newLanguage); // Notificar al padre sobre el cambio de idioma
   };
 
   return (
@@ -38,13 +42,13 @@ const Header = ({ onLanguageChange }) => {
       <div className="flex justify-between items-center gap-4 mb-6">
         <h1 className="text-2xl font-bold">La Cuestesita</h1>
         <select
-          className="bg-black text-white py-2 px-3 rounded-md"
+          className="dark:bg-custom-primary-black dark:text-white py-2 px-3 dark:rounded-md"
           value={selectedLanguage}
           onChange={handleLanguageChange}
         >
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="fr">Frances</option>
+          <option value="en">🇺🇸 English</option>
+          <option value="es">🇪🇸 Spain</option>
+          <option value="fr">🇫🇷 Frances</option>
         </select>
       </div>
 
@@ -52,15 +56,19 @@ const Header = ({ onLanguageChange }) => {
         <NavLink to="/" className="py-2 flex-shrink-0">
           <RiHome2Fill />
         </NavLink>
-        {categories.map((category) => (
-          <NavLink
-            key={category.id}
-            to={`/${category.name.toLowerCase()}`}
-            className="py-2 pr-4 flex-shrink-0"
-          >
-            {category.name}
-          </NavLink>
-        ))}
+        {loading ? ( // Mostrar un estado de carga
+          <span>Loading...</span>
+        ) : (
+          categories.map((category) => (
+            <NavLink
+              key={category.id}
+              to={`/${category.name.toLowerCase()}`}
+              className="py-2 pr-4 flex-shrink-0"
+            >
+              {category.name}
+            </NavLink>
+          ))
+        )}
       </nav>
     </header>
   );
