@@ -11,7 +11,7 @@ const Card = ({ id, img, description, price, inventory, isDrink }) => {
         className="object-cover w-40 h-40 -mt-20 rounded-full shadow-2xl"
       />
       <p className="text-xl">{description}</p>
-      <span className="text-gray-400">${price}</span>
+      <span className="text-gray-400">€{price}</span>
       <div className="flex justify-between w-full">
         <button className="bg-custom-purpure-dark-light text-custom-white hover:bg-[#BD85FC] rounded-full p-2">
           <RiEdit2Fill />
