@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Card from "./shared/Card";
+import Spinner from './shared/Spinner';
 
 const ListElements = ({ language }) => {
   const { category } = useParams();
@@ -10,15 +11,22 @@ const ListElements = ({ language }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const controller = new AbortController(); // Crear el controlador de abort
+    const signal = controller.signal;
+
     const fetchItems = async () => {
+      console.log("Fetching items...");
+      setLoading(true);
+      setError(null);
+
       try {
         let response;
-
         if (category === "bebidas") {
           response = await axios.get(`http://localhost:8000/api/drinks`, {
             headers: {
               "Accept-Language": language,
             },
+            signal,
           });
         } else {
           response = await axios.get(
@@ -27,27 +35,37 @@ const ListElements = ({ language }) => {
               headers: {
                 "Accept-Language": language,
               },
+              signal,
             }
           );
         }
 
-        setItems(response.data);
+        const uniqueItems = Array.from(new Set(response.data.map(item => item.id)))
+          .map(id => response.data.find(item => item.id === id));
+
+        setItems(uniqueItems);
       } catch (err) {
-        setError(err);
+        if (err.name !== "CanceledError") {
+          setError(err);
+        }
       } finally {
         setLoading(false);
       }
     };
 
     fetchItems();
-  }, [category, language]); // Refetch data when category or language changes
+
+    // Limpia la solicitud anterior cuando el efecto se ejecute de nuevo
+    return () => controller.abort();
+  }, [category, language]);
+
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
   if (!items.length)
     return (
       <div className="">
-        <img className="mx-auto my-auto rounded" src="/404.gif" alt="error 404" />
+        <div><Spinner /></div>
       </div>
     );
 

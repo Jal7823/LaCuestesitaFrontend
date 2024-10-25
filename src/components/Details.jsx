@@ -35,9 +35,9 @@ const Details = ({ language }) => { // Acepta el idioma como prop
   return (
     <div className="container ">
       <div className="bg-custom-purpure-light p-8 rounded-xl flex flex-col items-center gap-2 text-center  dark:bg-custom-secondary-black">
-        <div className="flex justify-between">
+        <div className="flex justify-between w-full">
           <h1 className='text-3xl'>{item.name.toUpperCase()}</h1>
-          <h1 className='text-3xl'>{item.id}</h1>
+          <h1 className='text-3xl text-white bg-custom-purpure-dark-light p-2 rounded-full'>{item.id}</h1>
         </div>
         <img
           src={item.image || "default-image.png"}
@@ -45,11 +45,11 @@ const Details = ({ language }) => { // Acepta el idioma como prop
           className="w-80 h-80 object-contain mt-20 shadow-2xl rounded-full"
         />
         <p className="text-xl">{item.description}</p>
-        <span className="text-gray-400">€{item.price}</span>
+        <span className="text-gray-400 text-3xl">€{item.price}</span>
         {item.ingredients && item.ingredients.length > 0 && (
-          <div className="mt-4">
+          <div className="mt-4 ">
             <h3 className="text-lg font-semibold">Ingredientes:</h3>
-            <ul className="list-disc list-inside flex  gap-4 mt-4 ">
+            <ul className="list-disc  ">
               {item.ingredients.map(ingredient => (
                 <li key={ingredient.id} className=" text-left">
                   {ingredient.name}
