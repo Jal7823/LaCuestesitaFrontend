@@ -8,6 +8,7 @@ import ListElements from "./components/ListElements";
 import Details from "./components/Details";
 import Spinner from './components/shared/Spinner';
 import { RiMenu3Fill, RiUser3Line, RiAddLine, RiPieChartLine, RiCloseLine } from "react-icons/ri";
+import Login from "./components/auth/Login";
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
@@ -72,6 +73,9 @@ function App() {
               <Route path="/" element={<ListElements items={items} fetchItems={fetchItems} language={language} />} />
               <Route path="/:category" element={<ListElements fetchItems={fetchItems} language={language} />} />
               <Route path="/details/:id" element={<Details language={language} />} /> {/* Pasa el idioma aquí */}
+              {/* Auth */}
+              <Route path="/login" element={<Login />} />
+
             </Routes>
           </div>
         </main>
