@@ -23,12 +23,12 @@ const Sidebar = (props) => {
       <div>
         <ul className="pl-4">
           <li>
-            <img className="rounded-full" src="/logo.jpeg" alt="" />
+            <img className="rounded-full w-[60px] h-[60px] mx-auto" src="/logo.svg" alt="" />
           </li>
           <li className=" p-4 rounded-tl-xl rounded-bl-xl">
             <NavLink
               to="#"
-              className="group-hover:bg-[#BD85FC] p-4 flex justify-center rounded-xl text-[#BD85FC] group-hover:text-white transition-colors"
+              className="group-hover:custom-purpure-dark-light p-4 flex justify-center rounded-xl text-custom-purpure-dark-light dark:group-hover:text-white transition-colors"
             >
               <RiHome6Line className="text-2xl" />
             </NavLink>
@@ -36,7 +36,7 @@ const Sidebar = (props) => {
           <li className="p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
             <NavLink
               to="#"
-              className="group-hover:bg-[#BD85FC] p-4 flex justify-center rounded-xl text-[#BD85FC] group-hover:text-white transition-colors"
+              className="group-hover:custom-purpure-dark-light p-4 flex justify-center rounded-xl text-custom-purpure-dark-light dark:group-hover:text-white transition-colors"
             >
               <RiAddCircleFill className="text-2xl" />
             </NavLink>
@@ -44,7 +44,7 @@ const Sidebar = (props) => {
           <li className="p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
             <NavLink
               to="#"
-              className="group-hover:bg-[#BD85FC] p-4 flex justify-center rounded-xl text-[#BD85FC] group-hover:text-white transition-colors"
+              className="group-hover:custom-purpure-dark-light p-4 flex justify-center rounded-xl text-custom-purpure-dark-light dark:group-hover:text-white transition-colors"
             >
               <RiPieChartLine className="text-2xl" />
             </NavLink>
@@ -52,7 +52,7 @@ const Sidebar = (props) => {
           <li className="p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
             <NavLink
               to="#"
-              className="group-hover:bg-[#BD85FC] p-4 flex justify-center rounded-xl text-[#BD85FC] group-hover:text-white transition-colors"
+              className="group-hover:custom-purpure-dark-light p-4 flex justify-center rounded-xl text-custom-purpure-dark-light dark:group-hover:text-white transition-colors"
             >
               <RiMailLine className="text-2xl" />
             </NavLink>
@@ -60,7 +60,7 @@ const Sidebar = (props) => {
           <li className="p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
             <NavLink
               to="#"
-              className="group-hover:bg-[#BD85FC] p-4 flex justify-center rounded-xl text-[#BD85FC] group-hover:text-white transition-colors"
+              className="group-hover:custom-purpure-dark-light p-4 flex justify-center rounded-xl text-custom-purpure-dark-light dark:group-hover:text-white transition-colors"
             >
               <RiNotification3Line className="text-2xl" />
             </NavLink>
@@ -68,7 +68,7 @@ const Sidebar = (props) => {
           <li className="p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
             <NavLink
               to="#"
-              className="group-hover:bg-[#BD85FC] p-4 flex justify-center rounded-xl text-[#BD85FC] group-hover:text-white transition-colors"
+              className="group-hover:custom-purpure-dark-light p-4 flex justify-center rounded-xl text-custom-purpure-dark-light dark:group-hover:text-white transition-colors"
             >
               <RiSettings4Line className="text-2xl" />
             </NavLink>
@@ -80,7 +80,7 @@ const Sidebar = (props) => {
           <li className="p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
             <NavLink
               to="#"
-              className="group-hover:bg-[#BD85FC] p-4 flex justify-center rounded-xl text-[#BD85FC] group-hover:text-white transition-colors"
+              className="group-hover:custom-purpure-dark-light p-4 flex justify-center rounded-xl text-custom-purpure-dark-light dark:group-hover:text-white transition-colors"
             >
               <ThemeToggle className="text-2xl" />
             </NavLink>

@@ -7,7 +7,7 @@ module.exports = {
       colors:{
         // light colors
         'custom-purpure-light':'#F9FAFF',
-        'custom-purpure-dark-light':'#9E71CE',
+        'custom-purpure-dark-light':'#f96511',
         'custom-dark-blue':'#4977E7',
         'custom-light-blue':'#7CC5FA',
         'custom-light-green':'#86D1B3',

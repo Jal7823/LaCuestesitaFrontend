@@ -13,10 +13,10 @@ const Card = ({ id, img, description, price, inventory, isDrink }) => {
       <p className="text-xl">{description}</p>
       <span className="text-gray-400">€{price}</span>
       <div className="flex justify-between w-full">
-        <button className="bg-custom-purpure-dark-light text-custom-white hover:bg-[#BD85FC] rounded-full p-2">
+        <button className="bg-custom-purpure-dark-light text-white dark:text-custom-primary-black hover:text-white rounded-full p-2">
           <RiEdit2Fill />
         </button>
-        <button className="bg-custom-purpure-dark-light text-custom-white hover:bg-[#BD85FC] rounded-full p-2">
+        <button className="bg-custom-purpure-dark-light text-white dark:text-custom-primary-black hover:text-white rounded-full p-2">
           <RiDeleteBin6Line />
         </button>
       </div>

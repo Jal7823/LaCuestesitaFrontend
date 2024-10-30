@@ -40,7 +40,7 @@ const Header = ({ onLanguageChange }) => {
   return (
     <header>
       <div className="flex justify-between items-center gap-4 mb-6">
-        <h1 className="text-2xl font-bold">La Cuestesita</h1>
+        <h1 className="text-2xl font-bold">MosAlves</h1>
         <select
           className="dark:bg-custom-primary-black dark:text-white py-2 px-3 dark:rounded-md"
           value={selectedLanguage}
